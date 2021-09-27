@@ -4,7 +4,7 @@ on:
 name: Bump
 jobs:
   bump_patch:
-    if: contains(github.event.pull_request.labels.*.name, 'patch')
+    if: contains(github.event.pull_request.labels.*.name, 'patch') && github.event.pull_request.merged == 'true'
     name: bump_patch
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +19,7 @@ jobs:
       - name: Build Tree
         run: ./bump.sh patch
   bump_minor:
-    if: contains(github.event.pull_request.labels.*.name, 'minor')
+    if: contains(github.event.pull_request.labels.*.name, 'minor') && github.event.pull_request.merged == 'true'
     name: bump_minor
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +34,7 @@ jobs:
       - name: Build Tree
         run: ./bump.sh minor
   bump_major:
-    if: contains(github.event.pull_request.labels.*.name, 'major')
+    if: contains(github.event.pull_request.labels.*.name, 'major') && github.event.pull_request.merged == 'true'
     name: bump_major
     runs-on: ubuntu-latest
     steps:
