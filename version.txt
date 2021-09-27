@@ -2,3 +2,4 @@ patch
 minor
 major
 major
+major
