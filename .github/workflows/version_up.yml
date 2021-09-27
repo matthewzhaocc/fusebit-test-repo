@@ -48,3 +48,5 @@ jobs:
           fetch-depth: 0
       - name: Build Tree
         run: ./bump.sh major
+      - name: publish
+        run: git rev-parse --short HEAD
